@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@primer/octicons-react": "^19.21.1",
     "@primer/react": "^38.5.0",
     "axios": "^1.13.2",
     "react": "^19.2.1",

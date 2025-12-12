@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../authContext.jsx";
 
-import { Button, PageHeader, SkeletonBox } from "@primer/react";
+import { Button, PageHeader } from "@primer/react";
 import "./auth.css";
 
 import logo from "../../assets/github-mark-white.svg";

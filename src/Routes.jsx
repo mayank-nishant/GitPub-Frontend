@@ -27,7 +27,6 @@ const ProjectRoutes = () => {
       navigate("/auth");
     }
 
-    // Redirect to dashboard if authenticated and trying to access auth pages
     if (userIdFromStorage && ["/auth", "/signup"].includes(window.location.pathname)) {
       navigate("/");
     }
