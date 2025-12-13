@@ -1,101 +1,180 @@
-.profile-page-wrapper {
+.profile-page {
   display: flex;
-  min-height: 100vh;
-  color: whitesmoke;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.profile-nav {
+  background-color: var(--bg-secondary);
+  padding: 12px 32px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 16px;
   width: 100%;
 }
 
-.user-profile-section {
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  padding: 40px 10px;
+.profile-content {
+  padding: 0 0;
+  width: 100%;
+  max-width: 100%;
 }
 
-.user-repo-section {
-  margin: 0px auto;
+.profile-page-wrapper {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.user-profile-section {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  height: fit-content;
+  position: sticky;
+  top: 100px;
 }
 
 .user-name {
-  margin: 10px 20px 10px 10px;
+  margin: 0;
+  text-align: center;
+}
+
+.user-name h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.1rem;
 }
 
 .profile-image {
-  margin: 10px auto;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  background-color: grey;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border: 3px solid var(--border-color);
 }
 
 .follow-btn {
-  background-color: #20272d;
-  width: 250px;
-  margin: 10px auto;
-  height: 40px;
-  border-radius: 10px;
-  color: whitesmoke;
+  background-color: var(--primary);
+  color: white;
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.follow-btn:hover {
+  background-color: var(--primary-dark);
+  box-shadow: var(--shadow-md);
 }
 
 .follower {
   display: flex;
-  justify-content: center;
-  width: 250px;
-  height: 30px;
-  gap: 10px;
-  margin: 10px auto;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: 8px;
+}
+
+.follower p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.heat-map-section {
+  width: 100%;
+  max-width: 100%;
 }
 
 .repo-card-wrapper {
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 40px 20px;
+  max-width: 100%;
 }
 
 .repo {
-  border: 0.5px solid grey;
-  border-radius: 10px;
-  width: 400px;
-  height: 210px;
-  padding: 20px 10px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.repo:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .repo-name {
-  cursor: pointer;
-  color: #408ced;
-  font-size: 20px;
+  color: var(--primary);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  line-height: 1.4;
+  word-break: break-word;
 }
 
 .description {
-  color: grey;
-  font-size: 15px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.4;
+  word-break: break-word;
 }
 
-@media screen and (max-width: 750px) {
-  .repo {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 570px) {
-  .user-profile-section {
-    margin: auto;
-  }
-
+@media screen and (max-width: 1024px) {
   .profile-page-wrapper {
-    display: block;
+    grid-template-columns: 1fr;
+  }
+
+  .user-profile-section {
+    position: relative;
+    top: auto;
+    grid-column: 1;
   }
 }
 
-#logout:hover {
-  border: 1px solid white;
+@media screen and (max-width: 768px) {
+  .profile-page-wrapper {
+    gap: 20px;
+  }
+
+  .profile-nav {
+    padding: 12px 16px;
+    margin-bottom: 20px;
+  }
+
+  .user-profile-section {
+    padding: 16px;
+  }
+
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .repo-card-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
 }

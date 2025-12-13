@@ -1,25 +1,44 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./navbar.css";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+    setIsLoggedIn(!!userId);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("userId");
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    navigate("/auth");
+  };
+
   return (
-    <nav>
-      <Link to="/">
-        <div>
-          <img src="https://www.github.com/images/modules/logos_page/GitHub-Mark.png" alt="GitPub Logo" />
-          <h3>GitPub</h3>
+    <div className="nav-shell">
+      <nav>
+        <Link to="/" className="nav-brand">
+          <img className="nav-logo" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" />
+          <span>GitPub</span>
+        </Link>
+        <div className="nav-links">
+          {isLoggedIn && (
+            <>
+              <Link to="/repos">Repositories</Link>
+              <Link to="/issues">Issues</Link>
+              <Link to="/profile">Profile</Link>
+              <button onClick={handleLogout} className="logout-btn">
+                Logout
+              </button>
+            </>
+          )}
         </div>
-      </Link>
-      <div>
-        <Link to="/create">
-          <p>Create a Repository</p>
-        </Link>
-        <Link to="/profile">
-          <p>Profile</p>
-        </Link>
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 };
 

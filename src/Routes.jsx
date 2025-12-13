@@ -5,6 +5,10 @@ import Dashboard from "../src/components/dashboard/Dashboard.jsx";
 import Profile from "../src/components/user/Profile.jsx";
 import Login from "../src/components/auth/Login.jsx";
 import Signup from "../src/components/auth/Signup.jsx";
+import RepoList from "../src/components/repo/List.jsx";
+import RepoDetail from "../src/components/repo/Detail.jsx";
+import IssueList from "../src/components/issue/List.jsx";
+import IssueDetail from "../src/components/issue/Detail.jsx";
 
 import { useAuth } from "../src/authContext.jsx";
 
@@ -48,6 +52,22 @@ const ProjectRoutes = () => {
     {
       path: "/profile",
       element: <Profile></Profile>,
+    },
+    {
+      path: "/repos",
+      element: <RepoList></RepoList>,
+    },
+    {
+      path: "/repo/:id",
+      element: <RepoDetail></RepoDetail>,
+    },
+    {
+      path: "/repos/:id/issues",
+      element: <IssueList></IssueList>,
+    },
+    {
+      path: "/issue/:id",
+      element: <IssueDetail></IssueDetail>,
     },
   ]);
 

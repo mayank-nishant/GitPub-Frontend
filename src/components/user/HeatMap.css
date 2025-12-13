@@ -1,0 +1,151 @@
+.heatmap-container {
+  background-color: var(--bg-secondary);
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.heatmap-container h3 {
+  margin-bottom: 24px;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.heatmap-grid {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.month-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.month-label {
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.week-column {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.day {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.day:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+  transform: scale(1.2);
+}
+
+.day.empty {
+  background-color: transparent;
+  cursor: default;
+  border: none;
+}
+
+.day.empty:hover {
+  border: none;
+  box-shadow: none;
+  transform: none;
+}
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  width: fit-content;
+  margin: 0 auto;
+  border: 1px solid var(--border-color);
+  font-size: 11px;
+}
+
+.heatmap-legend span {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.legend-box {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+}
+
+@media (max-width: 1200px) {
+  .heatmap-container {
+    padding: 24px;
+  }
+
+  .month-section {
+    gap: 8px;
+  }
+
+  .month-label {
+    font-size: 12px;
+  }
+
+  .day {
+    width: 12px;
+    height: 12px;
+  }
+
+  .month-grid {
+    gap: 3px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heatmap-container {
+    padding: 16px;
+  }
+
+  .heatmap-grid {
+    gap: 16px;
+  }
+
+  .day {
+    width: 11px;
+    height: 11px;
+  }
+
+  .heatmap-legend {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+}
